@@ -46,7 +46,7 @@
 <meta property="og:image" content="logo.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@aergul_ngo" />
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NGO", "name": "Aergul Foundation", "url": "https://www.aergulfoundation.org", "email": "info@aergulfoundation.org", "telephone": "+917779942477", "slogan": "Together we care, together we change.", "address": {"@type": "PostalAddress", "streetAddress": "Plot No. 629, Village Pandri, Post Jamua, P/S Dhaka", "addressLocality": "East Champaran", "addressRegion": "Bihar", "postalCode": "845418", "addressCountry": "IN"}, "sameAs": ["https://x.com/aergul_ngo", "https://www.linkedin.com/company/aergul-foundation/", "https://www.youtube.com/@Aergul_Foundation", "https://instagram.com/aergulfoundation", "https://facebook.com/aergulfoundation"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NGO", "name": "Aergul Foundation", "url": "https://www.aergulfoundation.org", "email": "info@aergulfoundation.org", "telephone": "+917779942477", "slogan": "Together we care, together we change.", "address": {"@type": "PostalAddress", "streetAddress": "Plot No. 629, Village Pandri, Post Jamua, P/S Dhaka", "addressLocality": "East Champaran", "addressRegion": "Bihar", "postalCode": "845418", "addressCountry": "IN"}, "sameAs": ["https://x.com/aergul_ngo", "https://www.linkedin.com/company/aergul-foundation/", "https://www.youtube.com/@Aergul_Foundation", "https://www.instagram.com/aergul_foundation?utm_source=qr&igsh=MXJ4ZWljMmR1aXZrOQ==", "https://www.facebook.com/share/1JSYt4GqqC/"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -2145,6 +2145,38 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
 @media (max-width:980px){.about__top{grid-template-columns:1fr}.offices{grid-template-columns:1fr}}
 @media (max-width:640px){.partners__grid{grid-template-columns:repeat(2,1fr);gap:12px}.partner__logo{padding:12px}.partner figcaption{padding:12px 10px 14px}.partner figcaption strong{font-size:15px}.reg{padding:14px}.reg i{width:38px;height:38px}}
 @media (max-width:360px){.partners__grid{grid-template-columns:1fr}}
+
+/* ============================================================
+   Volunteer registration card (animated)
+   ============================================================ */
+.vcta{position:relative;isolation:isolate;overflow:hidden;align-self:center;display:flex;flex-direction:column;align-items:center;text-align:center;gap:0;padding:clamp(28px,4vw,48px) clamp(22px,3vw,40px);border-radius:26px;border:1px solid transparent;background:linear-gradient(#0a2469,#0a2469) padding-box,conic-gradient(from var(--ang,0deg),#2f87d8,#f3b51b,#1749b5,#ffd452,#2f87d8) border-box;animation:vSpin 6s linear infinite;box-shadow:0 26px 70px -28px rgba(47,135,216,.55)}
+@property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes vSpin{to{--ang:360deg}}
+.vcta__orb{position:absolute;z-index:-1;border-radius:50%;filter:blur(40px);pointer-events:none}
+.vcta__orb--1{width:220px;height:220px;right:-70px;top:-70px;background:rgba(243,181,27,.35);animation:vOrb 9s ease-in-out infinite alternate}
+.vcta__orb--2{width:200px;height:200px;left:-70px;bottom:-70px;background:rgba(47,135,216,.4);animation:vOrb 11s ease-in-out infinite alternate-reverse}
+@keyframes vOrb{to{transform:translate(-30px,24px) scale(1.25)}}
+.vcta__icon{display:grid;place-items:center;width:72px;height:72px;margin-bottom:18px;border-radius:22px;background:linear-gradient(135deg,rgba(243,181,27,.22),rgba(243,181,27,.06));border:1px solid rgba(243,181,27,.5);color:var(--amber);animation:vFloat 3.6s ease-in-out infinite}
+.vcta__icon svg{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+@keyframes vFloat{50%{transform:translateY(-8px) rotate(-4deg);box-shadow:0 16px 30px -12px rgba(243,181,27,.6)}}
+.vcta__title{margin:0 0 8px;font-family:var(--font-display);font-weight:400;font-size:clamp(26px,3vw,34px);line-height:1.1;color:var(--cream)}
+.vcta__title em{font-style:italic;color:var(--amber)}
+.vcta__sub{margin:0 0 22px;max-width:34ch;color:#c9d6f2;font-size:14.5px}
+.vcta__steps{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:10px;width:100%;max-width:340px;text-align:left}
+.vcta__steps li{display:flex;align-items:center;gap:14px;padding:11px 14px;border:1px solid var(--line-2);border-radius:14px;background:rgba(255,255,255,.04);color:var(--cream);font-size:14px;opacity:0;transform:translateX(24px);animation:vStep .7s var(--ease) forwards;animation-delay:calc(.3s + var(--i)*.18s);transition:border-color .3s ease,transform .4s var(--ease)}
+.vcta__steps li:hover{border-color:var(--amber);transform:translateX(6px)}
+.vcta__steps b{flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--amber),var(--saffron));color:#071b58;font-size:13px}
+@keyframes vStep{to{opacity:1;transform:none}}
+.vcta__btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:12px;width:100%;max-width:340px;padding:16px 22px;border-radius:999px;background:linear-gradient(135deg,var(--amber),var(--saffron));color:#071b58;font-weight:700;font-size:15px;box-shadow:0 14px 38px -14px rgba(243,181,27,.85);animation:vPulse 2.4s ease-out infinite;transition:transform .4s var(--ease)}
+.vcta__btn::before{content:'';position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.6) 50%,transparent 70%);transform:translateX(-120%);animation:vShine 3.2s var(--ease) infinite}
+.vcta__btn i{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#071b58;color:var(--amber-2);transition:transform .4s var(--ease)}
+.vcta__btn i svg{width:14px;height:14px;animation:vArrow 1.6s ease-in-out infinite}
+.vcta__btn:hover{transform:translateY(-3px) scale(1.02)}
+.vcta__btn:hover i{transform:rotate(-45deg)}
+@keyframes vShine{0%,45%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+@keyframes vArrow{50%{transform:translateX(3px)}}
+@keyframes vPulse{0%{box-shadow:0 14px 38px -14px rgba(243,181,27,.85),0 0 0 0 rgba(243,181,27,.5)}70%,100%{box-shadow:0 14px 38px -14px rgba(243,181,27,.85),0 0 0 16px rgba(243,181,27,0)}}
+@media (prefers-reduced-motion:reduce){.vcta,.vcta__icon,.vcta__orb,.vcta__btn,.vcta__btn::before,.vcta__btn i svg{animation:none!important}.vcta__steps li{opacity:1;transform:none;animation:none}}
 </style>
 </head>
 <body>
@@ -2160,8 +2192,8 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
     <li style="--i:0"><a class="soc soc--x" href="https://x.com/aergul_ngo" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on X" title="X"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></a></li>
     <li style="--i:1"><a class="soc soc--linkedin" href="https://www.linkedin.com/company/aergul-foundation/" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-linkedin"/></svg></a></li>
     <li style="--i:2"><a class="soc soc--youtube" href="https://www.youtube.com/@Aergul_Foundation" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-youtube"/></svg></a></li>
-    <li style="--i:3"><a class="soc soc--instagram" href="https://instagram.com/aergulfoundation" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-instagram"/></svg></a></li>
-    <li style="--i:4"><a class="soc soc--facebook" href="https://facebook.com/aergulfoundation" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-facebook"/></svg></a></li>
+    <li style="--i:3"><a class="soc soc--instagram" href="https://www.instagram.com/aergul_foundation?utm_source=qr&igsh=MXJ4ZWljMmR1aXZrOQ==" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-instagram"/></svg></a></li>
+    <li style="--i:4"><a class="soc soc--facebook" href="https://www.facebook.com/share/1JSYt4GqqC/" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-facebook"/></svg></a></li>
     <li style="--i:5"><a class="soc soc--whatsapp" href="https://wa.me/917779942477" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg></a></li>
 </ul>
 
@@ -2219,8 +2251,8 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
     <span class="socials socials--menu" aria-label="Social media"><a class="soc soc--x" href="https://x.com/aergul_ngo" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on X" title="X"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></a>
       <a class="soc soc--linkedin" href="https://www.linkedin.com/company/aergul-foundation/" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-linkedin"/></svg></a>
       <a class="soc soc--youtube" href="https://www.youtube.com/@Aergul_Foundation" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-youtube"/></svg></a>
-      <a class="soc soc--instagram" href="https://instagram.com/aergulfoundation" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-instagram"/></svg></a>
-      <a class="soc soc--facebook" href="https://facebook.com/aergulfoundation" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-facebook"/></svg></a>
+      <a class="soc soc--instagram" href="https://www.instagram.com/aergul_foundation?utm_source=qr&igsh=MXJ4ZWljMmR1aXZrOQ==" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-instagram"/></svg></a>
+      <a class="soc soc--facebook" href="https://www.facebook.com/share/1JSYt4GqqC/" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-facebook"/></svg></a>
       <a class="soc soc--whatsapp" href="https://wa.me/917779942477" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg></a></span>
   </nav>
 </div>
@@ -3025,41 +3057,31 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
         <div class="volunteer__intro">
           <span class="eyebrow">Join the work</span>
           <h2 class="display display--sm">Your time can become <em>someone’s hope.</em></h2>
-          <p>Help us teach, serve meals, organize supplies, or tell more people about the work. We will reply through WhatsApp.</p>
+          <p>Help us teach, serve meals, organize supplies, or tell more people about the work. Fill out our Volunteer Registration Form and we will get in touch.</p>
           <div class="volunteer__perks">
             <span>Flexible opportunities for your schedule</span>
             <span>Local and remote ways to help</span>
             <span>Clear roles with a real community impact</span>
           </div>
         </div>
-        <form class="volunteer__form" id="volunteerForm" novalidate>
-          <div class="contact__row">
-            <div class="contact__field">
-              <label for="volunteerName">Name</label>
-              <input id="volunteerName" name="name" type="text" required maxlength="80" placeholder="Your name" autocomplete="name" />
-            </div>
-            <div class="contact__field">
-              <label for="volunteerPhone">Phone</label>
-              <input id="volunteerPhone" name="phone" type="tel" required maxlength="25" placeholder="Your phone number" autocomplete="tel" />
-            </div>
+        <div class="volunteer__form vcta" id="volunteerForm">
+          <span class="vcta__orb vcta__orb--1" aria-hidden="true"></span>
+          <span class="vcta__orb vcta__orb--2" aria-hidden="true"></span>
+          <div class="vcta__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1Z"/><rect x="5" y="6" width="14" height="15" rx="2.5"/><path d="m9 14 2 2 4-4"/></svg>
           </div>
-          <div class="contact__field">
-            <label for="volunteerInterest">I want to help with</label>
-            <select id="volunteerInterest" name="interest" required>
-              <option value="">Choose an area</option>
-              <option>Teaching children</option>
-              <option>Serving elderly meals</option>
-              <option>Fundraising</option>
-              <option>Social media and outreach</option>
-            </select>
-          </div>
-          <div class="contact__field">
-            <label for="volunteerMessage">Message</label>
-            <textarea id="volunteerMessage" name="message" maxlength="800" placeholder="Tell us how you would like to help"></textarea>
-          </div>
-          <button class="btn btn--primary" type="submit">Join via WhatsApp</button>
-          <p class="volunteer__status" id="volunteerStatus" role="status" aria-live="polite"></p>
-        </form>
+          <h3 class="vcta__title">Become a <em>volunteer</em></h3>
+          <p class="vcta__sub">Takes less than 2 minutes. Fill the form and our team will contact you.</p>
+          <ol class="vcta__steps">
+            <li style="--i:0"><b>1</b><span>Fill the registration form</span></li>
+            <li style="--i:1"><b>2</b><span>Our team reaches out to you</span></li>
+            <li style="--i:2"><b>3</b><span>Start making a difference</span></li>
+          </ol>
+          <a class="vcta__btn" href="https://forms.gle/MpqCQTPqhfjGJUHH9" target="_blank" rel="noopener noreferrer">
+            <span>Volunteer Registration Form</span>
+            <i aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -3131,12 +3153,12 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
           <span class="connect-card__copy"><strong>YouTube</strong><span>@Aergul_Foundation</span></span>
           <span class="connect-card__go" aria-hidden="true">&rarr;</span>
         </a>
-        <a class="connect-card soc soc--instagram" href="https://www.instagram.com/aergul_foundation?utm_source=qr&igsh=MXJ4ZWljMmR1aXZrOQ%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Instagram" data-scroll data-scroll-repeat>
+        <a class="connect-card soc soc--instagram" href="https://www.instagram.com/aergul_foundation?utm_source=qr&igsh=MXJ4ZWljMmR1aXZrOQ==" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Instagram" data-scroll data-scroll-repeat>
           <span class="soc soc--instagram soc--icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#i-instagram"/></svg></span>
           <span class="connect-card__copy"><strong>Instagram</strong><span>@aergulfoundation</span></span>
           <span class="connect-card__go" aria-hidden="true">&rarr;</span>
         </a>
-        <a class="connect-card soc soc--facebook" href="https://facebook.com/aergulfoundation" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Facebook" data-scroll data-scroll-repeat>
+        <a class="connect-card soc soc--facebook" href="https://www.facebook.com/share/1JSYt4GqqC/" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Facebook" data-scroll data-scroll-repeat>
           <span class="soc soc--facebook soc--icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#i-facebook"/></svg></span>
           <span class="connect-card__copy"><strong>Facebook</strong><span>Aergul Foundation</span></span>
           <span class="connect-card__go" aria-hidden="true">&rarr;</span>
@@ -3167,8 +3189,8 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
           <div class="contact__social"><small>Follow us</small><div class="socials"><a class="soc soc--x" href="https://x.com/aergul_ngo" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on X" title="X"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></a>
       <a class="soc soc--linkedin" href="https://www.linkedin.com/company/aergul-foundation/" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-linkedin"/></svg></a>
       <a class="soc soc--youtube" href="https://www.youtube.com/@Aergul_Foundation" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-youtube"/></svg></a>
-      <a class="soc soc--instagram" href="https://www.instagram.com/aergul_foundation?utm_source=qr&igsh=MXJ4ZWljMmR1aXZrOQ%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-instagram"/></svg></a>
-      <a class="soc soc--facebook" href="https://facebook.com/aergulfoundation" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-facebook"/></svg></a>
+      <a class="soc soc--instagram" href="https://www.instagram.com/aergul_foundation?utm_source=qr&igsh=MXJ4ZWljMmR1aXZrOQ==" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-instagram"/></svg></a>
+      <a class="soc soc--facebook" href="https://www.facebook.com/share/1JSYt4GqqC/" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-facebook"/></svg></a>
       <a class="soc soc--whatsapp" href="https://wa.me/917779942477" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg></a></div></div>
         </div>
 
@@ -3208,8 +3230,8 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
           <div class="socials"><a class="soc soc--x" href="https://x.com/aergul_ngo" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on X" title="X"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></a>
       <a class="soc soc--linkedin" href="https://www.linkedin.com/company/aergul-foundation/" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-linkedin"/></svg></a>
       <a class="soc soc--youtube" href="https://www.youtube.com/@Aergul_Foundation" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-youtube"/></svg></a>
-      <a class="soc soc--instagram" href="https://www.instagram.com/aergul_foundation?utm_source=qr&igsh=MXJ4ZWljMmR1aXZrOQ%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-instagram"/></svg></a>
-      <a class="soc soc--facebook" href="https://facebook.com/aergulfoundation" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-facebook"/></svg></a>
+      <a class="soc soc--instagram" href="https://www.instagram.com/aergul_foundation?utm_source=qr&igsh=MXJ4ZWljMmR1aXZrOQ==" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-instagram"/></svg></a>
+      <a class="soc soc--facebook" href="https://www.facebook.com/share/1JSYt4GqqC/" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-facebook"/></svg></a>
       <a class="soc soc--whatsapp" href="https://wa.me/917779942477" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg></a></div>
         </div>
 
@@ -3956,36 +3978,6 @@ document.querySelectorAll('.faq__question').forEach((question) => {
     answer.classList.toggle('is-open', !isOpen);
   });
 });
-
-const volunteerForm = document.getElementById('volunteerForm');
-const volunteerStatus = document.getElementById('volunteerStatus');
-
-if (volunteerForm) {
-  volunteerForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const formData = new FormData(volunteerForm);
-    const name = String(formData.get('name') || '').trim();
-    const phone = String(formData.get('phone') || '').trim();
-    const interest = String(formData.get('interest') || '').trim();
-    const message = String(formData.get('message') || '').trim();
-
-    if (!name || !phone || !interest) {
-      if (volunteerStatus) volunteerStatus.textContent = 'Please add your name, phone, and an interest area.';
-      return;
-    }
-
-    const whatsappText = [
-      'Hello Aergul Foundation, I would like to volunteer.',
-      '',
-      `Name: ${name}`,
-      `Phone: ${phone}`,
-      `Interest: ${interest}`,
-      `Message: ${message || 'No additional message.'}`,
-    ].join('\n');
-
-    window.location.href = `https://wa.me/917779942477?text=${encodeURIComponent(whatsappText)}`;
-  });
-}
 
 const contactForm = document.getElementById('contactForm');
 const contactStatus = document.getElementById('contactStatus');
